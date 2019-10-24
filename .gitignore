@@ -1,0 +1,10 @@
+# Directories
+models/
+test/
+images/
+csvs/
+
+
+# files
+*.zip
+*.h5
