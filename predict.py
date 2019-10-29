@@ -6,11 +6,6 @@ import imutils
 import argparse
 import cv2
 import os
-
-import tensorflow as tf
-config = tf.ConfigProto()
-config.gpu_options.allow_growth = True
-tf.keras.backend.set_session(tf.Session(config=config))
  
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -21,6 +16,7 @@ args = vars(ap.parse_args())
 
 # load the image
 image = cv2.imread(args['image'])
+print(image.shape)
 output = imutils.resize(image, width=400)
 
 # pre-process the image for classification
@@ -41,11 +37,9 @@ classes = ['index', 'genres', 'action', 'adventure', 'animation', 'biography',
 
 probs = model.predict(image)
 top_3 = np.argsort(probs[0])[:-4:-1]
+
+# show the results
 for i in range(3):
     label = f'{classes[top_3][i]} {probs[0][top_3][i]}'
     cv2.putText(output, label, (10, (i * 30) + 25), 
         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
-    
-# show the output image
-cv2.imshow("Output", output)
-cv2.waitKey(0)
