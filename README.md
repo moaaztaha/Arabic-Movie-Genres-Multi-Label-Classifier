@@ -47,5 +47,5 @@
 
  
 
-![](/media/kelwa/DEV/Projects/Arabic Movies Poster Multi-lable classification/example.png)
+![](example.png)
 
