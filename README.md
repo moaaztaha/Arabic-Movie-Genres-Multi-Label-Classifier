@@ -39,6 +39,8 @@
 
 ## Example 
 
+![](/media/kelwa/DEV/Projects/Arabic Movies Poster Multi-lable classification/BohaFull.jpg)
+
 - Actual Labels
 
   [Booha](https://www.imdb.com/title/tt0478404/): Comedy, Romance
